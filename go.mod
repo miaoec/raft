@@ -2,10 +2,8 @@ module raft
 
 go 1.17
 
-require git.code.oa.com/trpc-go/trpc-go v0.9.1
 
 require (
-	git.woa.com/jce/jce v1.2.0 // indirect
 	github.com/golang/protobuf v1.4.3 // indirect
 	github.com/golang/snappy v0.0.3 // indirect
 	github.com/google/flatbuffers v2.0.0+incompatible // indirect

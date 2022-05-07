@@ -1,7 +1,7 @@
 package main
 
 import (
-	"git.code.oa.com/trpc-go/trpc-go/log"
+	"log"
 	"math/rand"
 	"net"
 	"net/http"
@@ -208,7 +208,7 @@ func (r *Rift) Vote(req *VoteReq, rsp *VoteRsp) error {
 	r.mu.Lock()
 	//log.Infoff("%v：拿到啦", r.id)
 	defer r.mu.Unlock()
-	defer log.Infof("r(%v) VoteRecv:%+v,Rsp:%+v\n", r.id, req, rsp)
+	//defer log.Infof("r(%v) VoteRecv:%+v,Rsp:%+v\n", r.id, req, rsp)
 	if req.Term < r.term {
 		rsp.Grant = false
 		rsp.Term = r.term
@@ -354,7 +354,6 @@ func RaftFactor(count int) {
 			continue
 		}
 
-		log.Infof("###########SnapHot:##########\nleader:")
 		if flag {
 			for _, rift := range peers {
 				err := rift.disconnectPeer(leader)
